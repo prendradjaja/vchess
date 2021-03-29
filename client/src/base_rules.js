@@ -741,6 +741,7 @@ export const ChessRules = class ChessRules {
   // Similar to getSlideNJumpMoves, but limited range
   // TODO: DRY or combine with getSlideNJumpMoves
   getSlideNJumpMovesLimited([x, y], steps, maxRange) {
+    // TODO probably rename maxRange to range
     let moves = [];
     outerLoop: for (let step of steps) {
       let i = x + step[0];
