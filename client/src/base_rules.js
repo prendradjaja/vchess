@@ -738,6 +738,27 @@ export const ChessRules = class ChessRules {
     return moves;
   }
 
+  // Similar to getSlideNJumpMoves, but limited range
+  // TODO: DRY or combine with getSlideNJumpMoves
+  getSlideNJumpMovesLimited([x, y], steps, maxRange) {
+    let moves = [];
+    outerLoop: for (let step of steps) {
+      let i = x + step[0];
+      let j = y + step[1];
+      let k = 1;
+      while (V.OnBoard(i, j) && this.board[i][j] == V.EMPTY) {
+        moves.push(this.getBasicMove([x, y], [i, j]));
+        if (k >= maxRange) continue outerLoop;
+        i += step[0];
+        j += step[1];
+        k++;
+      }
+      if (V.OnBoard(i, j) && this.canTake([x, y], [i, j]))
+        moves.push(this.getBasicMove([x, y], [i, j]));
+    }
+    return moves;
+  }
+
   // Special case of en-passant captures: treated separately
   getEnpassantCaptures([x, y], shiftX) {
     const Lep = this.epSquares.length;
