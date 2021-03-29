@@ -100,7 +100,8 @@ export class MyexampleRules extends ChessRules {
   getPotentialEmpressMoves(sq) {
     return [].concat(
       this.getSlideNJumpMoves(sq, V.steps.$d, "oneStep"),
-      this.getSlideNJumpMoves(sq, V.steps.$w, "oneStep"),
+      this.getSlideNJumpMoves(sq, V.steps.$f, "oneStep"),
+      this.getSlideNJumpMoves(sq, V.steps.$3, "oneStep"),
     );
   }
 
@@ -115,7 +116,8 @@ export class MyexampleRules extends ChessRules {
   isAttackedByEmpress(sq, color) {
     return (
       this.isAttackedBySlideNJump(sq, color, V.EMPRESS, V.steps.$d, "oneStep") ||
-      this.isAttackedBySlideNJump(sq, color, V.EMPRESS, V.steps.$w, "oneStep") ||
+      this.isAttackedBySlideNJump(sq, color, V.EMPRESS, V.steps.$f, "oneStep") ||
+      this.isAttackedBySlideNJump(sq, color, V.EMPRESS, V.steps.$3, "oneStep") ||
       false // || false can be removed later, doesn't do anything, is just here for ease of editing
     );
   }
