@@ -112,8 +112,10 @@ export class MyexampleRules extends ChessRules {
   }
 
   isAttackedByEmpress(sq, color) {
-    // TODO implement for Short Rook (requires isAttackedBySlideNJumpLimited)
-    return false;
+    return (
+      this.isAttackedBySlideNJumpLimited(sq, color, V.EMPRESS, V.steps[V.ROOK], 4) ||
+      false // || false can be removed later, doesn't do anything, is just here for ease of editing
+    );
   }
 
   static get VALUES() {
