@@ -29,7 +29,8 @@ export class MyexampleRules extends ChessRules {
 
   static GenRandInitFen(randomness) {
     // TODO support randomness
-    return "rnbqkbne/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNE w 0 ahah -";
+    // return "rnbqkbne/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNE w 0 ahah -";
+    return "k7/8/2e5/8/8/5E2/8/7K w 0 ahah -";
   }
 
 
