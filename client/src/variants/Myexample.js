@@ -52,9 +52,55 @@ export class MyexampleRules extends ChessRules {
     }
   }
 
+  static get steps() {
+    return Object.assign(
+      {},
+      ChessRules.steps,
+      {
+        // I added "$" to avoid conflict with piece abbreviations (e.g. W for Woody Rook would conflict with W for Wazir)
+        // Dabbabah
+        '$d': [
+          [-2, 0],
+          [0, -2],
+          [2, 0],
+          [0, 2]
+        ],
+        // Wazir
+        '$w': [
+          [-1, 0],
+          [0, -1],
+          [1, 0],
+          [0, 1]
+        ],
+        // Alfil
+        '$a': [
+          [2, 2],
+          [2, -2],
+          [-2, 2],
+          [-2, -2]
+        ],
+        // Ferz
+        '$f': [
+          [1, 1],
+          [1, -1],
+          [-1, 1],
+          [-1, -1]
+        ],
+        // Threeleaper
+        '$3': [
+          [-3, 0],
+          [0, -3],
+          [3, 0],
+          [0, 3]
+        ],
+      }
+    );
+  }
+
   getPotentialEmpressMoves(sq) {
-    return this.getSlideNJumpMoves(sq, V.steps[V.ROOK]).concat(
-      this.getSlideNJumpMoves(sq, V.steps[V.KNIGHT], "oneStep")
+    return [].concat(
+      this.getSlideNJumpMoves(sq, V.steps.$d, "oneStep"),
+      this.getSlideNJumpMoves(sq, V.steps.$w, "oneStep"),
     );
   }
 
@@ -68,14 +114,9 @@ export class MyexampleRules extends ChessRules {
 
   isAttackedByEmpress(sq, color) {
     return (
-      this.isAttackedBySlideNJump(sq, color, V.EMPRESS, V.steps[V.ROOK]) ||
-      this.isAttackedBySlideNJump(
-        sq,
-        color,
-        V.EMPRESS,
-        V.steps[V.KNIGHT],
-        "oneStep"
-      )
+      this.isAttackedBySlideNJump(sq, color, V.EMPRESS, V.steps.$d, "oneStep") ||
+      this.isAttackedBySlideNJump(sq, color, V.EMPRESS, V.steps.$w, "oneStep") ||
+      false // || false can be removed later, doesn't do anything, is just here for ease of editing
     );
   }
 
