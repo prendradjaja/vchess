@@ -11,6 +11,7 @@ insert or ignore into Variants (name, description, noProblems) values
   ('Synchrone2', 'Play at the same time (v2)', true);
 
 insert or ignore into Variants (name, description) values
+  ('Myexample', 'Example variant'),
   ('Absorption', 'Absorb powers'),
   ('Alapo', 'Geometric Chess'),
   ('Alice', 'Both sides of the mirror'),
