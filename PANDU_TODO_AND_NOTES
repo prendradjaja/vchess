@@ -1,0 +1,36 @@
+Todo list:
+x Learn to create a variant
+x Learn to add a piece
+
+First things first:
+. CWDA-CC -- colorbound vs colorbound
+. CWDA-FR -- rookies
+. host a fork
+
+Maybe also:
+. CWDA-RR -- rookies vs rookies
+. CWDA-CR -- rookies vs colorbound
+. CWDA-RC -- ...and vice versa
+
+Later:
+. Unit tests
+. Refactoring (DRY)
+
+How to add a piece:
+  /Users/pandu/c/variants/Perfect.js
+  /Users/pandu/c/variants/Colorbound.js
+  /Users/pandu/c/variants/Schess.js
+
+  x static get PawnSpecs(.) -- promotion
+  x getPpath(b) -- path to images
+  x static get AMAZON(.) -- abbreviation "a"
+  x static get PIECES(.)
+
+
+  x getPotentialMovesFrom([x, y])
+    x getPotentialAmazonMoves([x, y])
+  x isAttacked(sq, color)
+    x isAttackedByAmazon([x, y])
+  x static get VALUES(.)
+  x static get SEARCH_DEPTH() -- 2? perfect, schess, and colorbound all use this, was that deliberate?
+  . static GenRandInitFen(randomness)
