@@ -1120,6 +1120,30 @@ export const ChessRules = class ChessRules {
     return false;
   }
 
+  // Similar to isAttackedBySlideNJump, but limited range
+  // TODO: DRY or combine with isAttackedBySlideNJump
+  isAttackedBySlideNJumpLimited([x, y], color, piece, steps, range) {
+    for (let step of steps) {
+      let rx = x + step[0],
+          ry = y + step[1],
+          i = 1;
+      while (V.OnBoard(rx, ry) && this.board[rx][ry] == V.EMPTY && i < range) {
+        rx += step[0];
+        ry += step[1];
+        i++;
+      }
+      if (
+        V.OnBoard(rx, ry) &&
+        this.board[rx][ry] != V.EMPTY &&
+        this.getPiece(rx, ry) == piece &&
+        this.getColor(rx, ry) == color
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   // Is square x,y attacked by 'color' pawns ?
   isAttackedByPawn(sq, color) {
     const pawnShift = (color == "w" ? 1 : -1);
