@@ -13,6 +13,7 @@ insert or ignore into Variants (name, description, noProblems) values
 insert or ignore into Variants (name, description) values
   ('Myexample', 'Example variant'),
   ('Cwdafr', 'TODO'),
+  ('Cwdacc', 'TODO'),
   ('Absorption', 'Absorb powers'),
   ('Alapo', 'Geometric Chess'),
   ('Alice', 'Both sides of the mirror'),
