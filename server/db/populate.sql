@@ -12,7 +12,6 @@ insert or ignore into Variants (name, description, noProblems) values
 
 insert or ignore into Variants (name, description) values
   ('Myexample', 'Example variant'),
-  ('Cwdafr', 'TODO'),
   ('Cwdacc', 'TODO'),
   ('Absorption', 'Absorb powers'),
   ('Alapo', 'Geometric Chess'),
@@ -137,6 +136,7 @@ insert or ignore into Variants (name, description) values
   ('Racingkings', 'Kings cross the 8x8 board'),
   ('Rampage', 'Move under cover'),
   ('Relayup', 'Upgrade pieces'),
+  ('Remarkablerookies', 'TODO'),
   ('Rifle', 'Shoot pieces'),
   ('Recycle', 'Reuse pieces'),
   ('Refusal1', 'Do not play that! (v1)'),
